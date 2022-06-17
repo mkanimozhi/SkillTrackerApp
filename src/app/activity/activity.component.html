@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="activity" value="Add" (click)="setradio(false)" [checked]='true' ngModel>
+                    Add
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="activity" value="Edit" (click)="setradio(true)" ngModel>
+                    Edit
+                </label>
+            </div>
+        </div>
+        <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                <app-add></app-add>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
