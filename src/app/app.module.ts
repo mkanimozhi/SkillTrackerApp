@@ -12,10 +12,11 @@ import { AddComponent } from './activity/add/add.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HeaderComponent, ActivityComponent, ListComponent, AddComponent
+    AppComponent, HeaderComponent, ActivityComponent, ListComponent, AddComponent, SearchComponent
   ],
   imports: [
     BrowserModule,
