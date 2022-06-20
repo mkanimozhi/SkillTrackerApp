@@ -5,12 +5,13 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
-  { path: '', component: ActivityComponent},
-    { path: 'search', component: SearchComponent }
+  
+  
+    { path: 'search', component: SearchComponent },
     //,
 
     // otherwise redirect to home
-    //{ path: '**', redirectTo: '' }
+    { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
