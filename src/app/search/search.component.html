@@ -1,1 +1,30 @@
-<p>search works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6, col-md-12">
+            <h2>Search Engineer</h2>
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <!--<label for="name">Name</label>-->
+                    <h6 style="font-weight:bold">Search By</h6>
+                    <select>
+                        <option>Select</option>
+                          <option *ngFor="let item of this.dataList;let i = index" value="{{item.code}}" [selected]="i == 0">
+                            {{item.name}}
+                          </option>
+                        </select>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                    <div class="alert alert-danger" *ngIf="userForm.get('name').invalid 
+              && userForm.get('name').touched">
+                        <div *ngIf="userForm.get('name').errors?.['required']">
+                            Name is required.
+                        </div>
+                        <div *ngIf="userForm.get('name').errors?.['minlength']">
+                            Name must be at least 5 characters long.
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="userForm.invalid" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
