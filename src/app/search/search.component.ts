@@ -16,46 +16,71 @@ export class SearchComponent implements OnInit {
   // }
   dataList: Array<any> = [];
   profile: Profile = new Profile();
+  searchId = "";
+  searchVal = "";
+
+  profiles: any;
   
   isAdded = false;
   constructor(private profileService: ProfileService){}
   userTypes = ['Silver', 'Gold', 'Platinum'];  
   currentDate = new Date();
-  userForm: FormGroup;          
+  searchForm: FormGroup;          
   ngOnInit() {
-    this.userForm = new FormGroup({
+    this.searchForm = new FormGroup({
       searchVal: new FormControl('', [Validators.required]),
 
       //userType: new FormControl(),
       //startDate: new FormControl(this.datePipe.transform(this.currentDate, 'yyyy-MM-dd'))
     // }, {
     //   validator: MustMatch('name','associateId')
+
+    searchId: new FormControl('', Validators.required)
+
   });
-  this.dataList = [
-    { code: 1, name: "AssociateId" },
-    { code: 2, name: "Name" },
-    { code: 3, name: "Skill" }
-  ]
+  this.dataList = [ 'AssociateId', 'Name', 'Skill' ]
+  //   { code: 1, name: "AssociateId" },
+  //   { code: 2, name: "Name" },
+  //   { code: 3, name: "Skill" }
+  // ]
   }
 
   onSubmit(){
 
-    this.profile.name = this.userForm.value.searchVal;
+    this.searchVal = this.searchForm.value.searchVal;
+    this.searchId = this.searchForm.value.searchId;
+    //console.log(this.searchForm.value.search);
+    console.log(this.searchVal);
+    console.log(this.searchId);
+    if (this.searchId === "AssociateId") { 
+      this.profile.associateId = this.searchForm.value.searchVal;
+    } else if (this.searchId === "Name") { 
+      this.profile.name = this.searchForm.value.searchVal;
+    } else if (this.searchId === "Skill") { 
+      //this.profile.technicalSkills = this.searchForm.value.searchVal;
+    }
+
+    //this.profile.name = this.searchForm.value.searchVal;
 
     this.save();
   }
 
   save(){
     console.log(this.profile);
-    this.profileService.addProfile(this.profile).subscribe({
-    })
+
+    this.profileService.findProfile(this.profile).subscribe((data) =>{
+      console.log(data);
+      this.profiles = data.responseBody.profileList;
+      });
+    // this.profileService.addProfile(this.profile).subscribe({
+    // })
     
                    // .subscribe(user=> {console.log(user);
                      // this.isAdded = true;
                     //}, error=>console.log(error))
   }
 
-  onChange(deviceValue) {
+  changeWebsite(deviceValue) {
  
   }
 }

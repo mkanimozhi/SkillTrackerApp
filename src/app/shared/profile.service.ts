@@ -27,6 +27,18 @@ export class ProfileService {
         };
 return this.http.post('http://localhost:8081/skill-tracker/api/v1/engineer/add-profile', profile, httpOptions);
     }
+
+    findProfile(profile: Profile) : Observable<any> {
+
+        console.log(profile);
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type' : 'application/json',
+                'Accept' : 'application/json'
+            })
+        };
+return this.http.post('http://localhost:8081/skill-tracker/api/v1/engineer/find-profile', profile, httpOptions);
+    }    
     
     //  getProfiles(): Observable<Profile[]>{
     //     return this.http.get<Profile[]>(`${this.baseUrl}`);
