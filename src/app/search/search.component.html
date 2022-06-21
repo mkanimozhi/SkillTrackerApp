@@ -1,20 +1,24 @@
 <div class="container">
     <h2>Search Engineer</h2>
-    <!--<div class="row">
-        <div class="col-sm-2, col-md-4">-->
+    
             
             <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+
                     <!--<div class="row">
                         <div class="col-sm-2, col-md-4">
                     <label for="name">Name</label>-->
                     <h6 style="font-weight:bold">Search By</h6>
-                    <select formControlName="searchId" class="form-control" (change)="changeWebsite($event)">
+                    <select formControlName="searchId" class="form-control" (change)="changeSearchId($event)">
                         <option>Select</option>
                           <option *ngFor="let item of dataList;let i = index" value="{{item}}" [selected]="i == 0">
                             {{item}}
                           </option>
                         </select>
+                    </div>
+                    <div class="col-md-6">
                     <input type="text" class="form-control" id="searchVal" formControlName="searchVal">
                     <div class="alert alert-danger" *ngIf="searchForm.get('searchVal').invalid 
               && searchForm.get('searchVal').touched">
@@ -22,6 +26,8 @@
                             Search Value is required.
                         </div>
                     </div>
+                    </div>
+                </div>
                 </div>
                 <button type="submit" [disabled]="searchForm.invalid" class="btn btn-success">Submit</button>
                     <!--</div>

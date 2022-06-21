@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   // ngOnInit(): void {
   // }
   dataList: Array<any> = [];
-  profile: Profile = new Profile();
+  profile: Profile =new Profile(null, null, null, null, null, null);
   searchId = "";
   searchVal = "";
 
@@ -80,7 +80,11 @@ export class SearchComponent implements OnInit {
                     //}, error=>console.log(error))
   }
 
-  changeWebsite(deviceValue) {
- 
+  changeSearchId(e) {
+    console.log(e.target.value);
+    //this.searchForm.value.searchVal = '';
+    //this.searchForm.setValue({searchVal : ''});
+    //this.searchForm.searchVal.reset();
+    this.searchForm.controls['searchVal'].setValue('');
   }
 }

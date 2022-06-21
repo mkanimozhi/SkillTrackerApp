@@ -13,9 +13,9 @@ import { MustMatch } from 'src/app/_helpers/starts-validator';
 })
 export class AddComponent implements OnInit {
   
-  profile: Profile = new Profile();
   technicalSkills: TechnicalSkills = new TechnicalSkills();
   nonTechnicalSkills: NonTechnicalSkills = new NonTechnicalSkills();
+  profile: Profile = new Profile(null, null, null, null, this.technicalSkills, this.nonTechnicalSkills);
   
   isAdded = false;
   constructor(private profileService: ProfileService){}

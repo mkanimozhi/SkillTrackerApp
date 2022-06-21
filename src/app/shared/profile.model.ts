@@ -5,6 +5,15 @@ export class Profile {
     email : string;
     technicalSkills: TechnicalSkills;
     nonTechnicalSkills: NonTechnicalSkills;
+    constructor(name: string,associateId: string,mobile: string,email : string,
+        technicalSkills: TechnicalSkills, nonTechnicalSkills: NonTechnicalSkills ) {
+            this.name = name;
+            this.associateId = associateId;
+            this.mobile = mobile;
+            this.email = email;
+            this.technicalSkills = technicalSkills;
+            this.nonTechnicalSkills = nonTechnicalSkills;
+    }
 }
 export class TechnicalSkills {
     html_Css_Javascript: string;
