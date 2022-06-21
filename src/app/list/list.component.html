@@ -1,39 +1,73 @@
 <div class="container">
-    <div class="row">
-        <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let profile of profiles">
-                    <th scope="row">{{profile.id}}</th>
-                    <td>{{profile.name}}</td>
-                    <td>{{profile.associateId}}</td>
-                    <!--<td>{{employee.email}}</td>-->
-                    </tr>
-              <!--<tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr> -->
-            </tbody>
-          </table>
-    </div>
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+        <!--<tr>
+                <th>Full Stack Engineers</th>
+              </tr>-->
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Associate Id</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Email</th>
+          <th scope="row">Techincal skills</th>
+          <th scope="row">Non-Techincal skills</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let profile of profiles">
+          <th scope="row">{{profile.id}}</th>
+          <td>{{profile.name}}</td>
+          <td>{{profile.associateId}}</td>
+          <td>{{profile.mobile}}</td>
+          <td>{{profile.email}}</td>
+          <td>
+        <tr>
+          <td>html_Css_Javascript:{{profile.technicalSkills.html_Css_Javascript}}</td>
+        </tr>
+        <tr>
+          <td>angular:{{profile.technicalSkills.angular}}</td>
+        </tr>
+        <tr>
+          <td>react:{{profile.technicalSkills.react}}</td>
+        </tr>
+        <tr>
+          <td>spring:{{profile.technicalSkills.spring}}</td>
+        </tr>
+        <tr>
+          <td>restful:{{profile.technicalSkills.restful}}</td>
+        </tr>
+        <tr>
+          <td>hibernate:{{profile.technicalSkills.hibernate}}</td>
+        </tr>
+        <tr>
+          <td>git:{{profile.technicalSkills.git}}</td>
+        </tr>
+        <tr>
+          <td>docker:{{profile.technicalSkills.docker}}</td>
+        </tr>
+        <tr>
+          <td>jenkins:{{profile.technicalSkills.jenkins}}</td>
+        </tr>
+        <tr>
+          <td>aws:{{profile.technicalSkills.aws}}</td>
+        </tr>
+        </td>
+        <td>
+          <tr>
+            <td>spoken:{{profile.technicalSkills.aws}}</td>
+          </tr>
+          <tr>
+            <td>communication:{{profile.technicalSkills.aws}}</td>
+          </tr>
+          <tr>
+            <td>aptitude:{{profile.technicalSkills.aws}}</td>
+          </tr>
+          </td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
