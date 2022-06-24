@@ -39,7 +39,11 @@ return this.http.post('http://localhost:8081/skill-tracker/api/v1/engineer/add-p
         };
 return this.http.post('http://localhost:8081/skill-tracker/api/v1/engineer/find-profile', profile, httpOptions);
     }    
-    
+  
+    getProfileDetail(id: number) : Observable<any> {
+        return this.http.get('http://localhost:8081/skill-tracker/api/v1/engineer/get-profile-detail?id='+id);
+    }
+
     //  getProfiles(): Observable<Profile[]>{
     //     return this.http.get<Profile[]>(`${this.baseUrl}`);
     //  return this.http.get(this.baseUrl).

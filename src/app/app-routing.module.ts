@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ActivityComponent } from './activity/activity.component';
-import { AppComponent } from './app.component';
+import { EditComponent } from './activity/edit/edit.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   
   
     { path: 'search', component: SearchComponent },
+    { path: 'edit', component: EditComponent },
     //,
 
     // otherwise redirect to home

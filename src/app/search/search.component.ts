@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../shared/profile.model';
 import { ProfileService } from '../shared/profile.service';
 
@@ -20,13 +21,22 @@ export class SearchComponent implements OnInit {
   searchVal = "";
 
   profiles: any;
+  id = "";
   
   isAdded = false;
-  constructor(private profileService: ProfileService){}
+
+  constructor(private profileService: ProfileService, private route: ActivatedRoute){}
   userTypes = ['Silver', 'Gold', 'Platinum'];  
   currentDate = new Date();
   searchForm: FormGroup;          
   ngOnInit() {
+    this.route.queryParams.subscribe(
+      params => {
+        this.id =  params['id'];
+        //this.language=params['language'];
+      }
+    )
+
     this.searchForm = new FormGroup({
       searchVal: new FormControl('', [Validators.required]),
 
@@ -35,7 +45,11 @@ export class SearchComponent implements OnInit {
     // }, {
     //   validator: MustMatch('name','associateId')
 
-    searchId: new FormControl('', Validators.required)
+    searchId: new FormControl('', Validators.required),
+
+    
+    //id: this.route.snapshot.paramMap.get('id')
+    
 
   });
   this.dataList = [ 'AssociateId', 'Name', 'Skill' ]
@@ -46,7 +60,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(){
-
+    console.log(this.id);
     this.searchVal = this.searchForm.value.searchVal;
     this.searchId = this.searchForm.value.searchId;
     //console.log(this.searchForm.value.search);

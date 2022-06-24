@@ -18,13 +18,14 @@ export class AddComponent implements OnInit {
   profile: Profile = new Profile(null, null, null, null, this.technicalSkills, this.nonTechnicalSkills, null, null);
   
   isAdded = false;
+  showMsg = false;
   constructor(private profileService: ProfileService){}
   userTypes = ['Silver', 'Gold', 'Platinum'];  
   currentDate = new Date();
   userForm: FormGroup;          
   ngOnInit() {
     this.userForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      uname: new FormControl('', [Validators.required, Validators.minLength(5)]),
       associateId: new FormControl('', [Validators.required, Validators.minLength(3)]),
       mobile: new FormControl('', [Validators.required, Validators.minLength(10)]),     
       email: new FormControl('', [Validators.required]),
@@ -50,7 +51,7 @@ export class AddComponent implements OnInit {
 
   onSubmit(){
 
-    this.profile.name = this.userForm.value.name;
+    this.profile.name = this.userForm.value.uname;
     this.profile.associateId = this.userForm.value.associateId;
     this.profile.mobile = this.userForm.value.mobile;
     this.profile.email = this.userForm.value.email;
@@ -71,6 +72,8 @@ export class AddComponent implements OnInit {
     //this.profile.userType = this.userForm.value.userType; 
     //this.profile.startDate = this.userForm.value.startDate;
     this.save();
+    this.userForm.reset();
+    this.showMsg = true;
   }
 
   save(){

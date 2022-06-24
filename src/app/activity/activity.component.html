@@ -1,28 +1,29 @@
-<div class="container">
+<div [formGroup]="activityForm">
     <div class="row">
         <div class="col-md-4">
             <div class="radio">
                 <label>
-                    <input type="radio" name="activity" value="Add" (click)="setradio(false)" [checked]='true' ngModel>
-                    Add
+                    <input type="radio" name="activity" value="Add" [checked]='true'
+                        (change)="changeActivity($event)">
+                    <strong>Add</strong>
                 </label>
             </div>
         </div>
         <div class="col-md-4">
             <div class="radio">
                 <label>
-                    <input type="radio" name="activity" value="Edit" (click)="setradio(true)" ngModel>
-                    Edit
+                    <input type="radio" name="activity" value="Edit" 
+                        (change)="changeActivity($event)">
+                    <strong>Edit</strong>
                 </label>
             </div>
         </div>
         <div class="col-md-4"></div>
     </div>
-    <div id="collapseExample" [ngbCollapse]="isCollapsed">
-        <div class="card">
-            <div class="card-body">
-                <app-add></app-add>
-            </div>
-        </div>
+</div>
+
+<div class="card" *ngIf="isAdd">
+    <div class="card-body">
+        <app-add></app-add>
     </div>
-    <!--</div>-->
+</div>
