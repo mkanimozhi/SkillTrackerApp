@@ -15,7 +15,7 @@ export class AddComponent implements OnInit {
   
   technicalSkills: TechnicalSkills = new TechnicalSkills();
   nonTechnicalSkills: NonTechnicalSkills = new NonTechnicalSkills();
-  profile: Profile = new Profile(null, null, null, null, this.technicalSkills, this.nonTechnicalSkills);
+  profile: Profile = new Profile(null, null, null, null, this.technicalSkills, this.nonTechnicalSkills, null, null);
   
   isAdded = false;
   constructor(private profileService: ProfileService){}

@@ -23,39 +23,15 @@
           <td>{{profile.mobile}}</td>
           <td>{{profile.email}}</td>
           <td>
-        <tr>
-          <td>html_Css_Javascript:{{profile.technicalSkills.html_Css_Javascript}}</td>
-        </tr>
-        <tr>
-          <td>angular:{{profile.technicalSkills.angular}}</td>
-        </tr>
-        <tr>
-          <td>react:{{profile.technicalSkills.react}}</td>
-        </tr>
-        <tr>
-          <td>spring:{{profile.technicalSkills.spring}}</td>
-        </tr>
-        <tr>
-          <td>restful:{{profile.technicalSkills.restful}}</td>
-        </tr>
-        <tr>
-          <td>hibernate:{{profile.technicalSkills.hibernate}}</td>
-        </tr>
-        <tr>
-          <td>git:{{profile.technicalSkills.git}}</td>
-        </tr>
-        <tr>
-          <td>docker:{{profile.technicalSkills.docker}}</td>
-        </tr>
-        <tr>
-          <td>jenkins:{{profile.technicalSkills.jenkins}}</td>
-        </tr>
-        <tr>
-          <td>aws:{{profile.technicalSkills.aws}}</td>
+        <tr *ngFor="let techSkill of profile.technicalSkill">
+          <td>{{techSkill.skillName}}-{{techSkill.expertiseLevel}}</td>
         </tr>
         </td>
         <td>
-          <tr>
+          <tr *ngFor="let nonTechSkill of profile.nonTechnicalSkill">
+            <td>{{nonTechSkill.skillName}}-{{nonTechSkill.expertiseLevel}}</td>
+          </tr>          
+          <!--<tr>
             <td>spoken:{{profile.technicalSkills.aws}}</td>
           </tr>
           <tr>
@@ -63,9 +39,9 @@
           </tr>
           <tr>
             <td>aptitude:{{profile.technicalSkills.aws}}</td>
-          </tr>
-          </td>
-  
+          </tr> -->
+        </td>
+
         </tr>
       </tbody>
     </table>

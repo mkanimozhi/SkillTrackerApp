@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from '../shared/profile.model';
 import { ProfileService } from '../shared/profile.service';
 
 @Component({
@@ -9,15 +8,15 @@ import { ProfileService } from '../shared/profile.service';
 })
 export class ListComponent implements OnInit {
 
-   profiles: any;
+  profiles: any;
   constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    
-   this.profileService.getProfiles().subscribe((data) =>{
-     console.log(data);
-     this.profiles = data;
-     });
+
+    this.profileService.getProfiles().subscribe((data) => {
+      //console.log(data);
+      this.profiles = data;
+    });
   }
 
 }

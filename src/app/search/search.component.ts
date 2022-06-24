@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   // ngOnInit(): void {
   // }
   dataList: Array<any> = [];
-  profile: Profile =new Profile(null, null, null, null, null, null);
+  profile: Profile =new Profile(null, null, null, null, null, null, null, null);
   searchId = "";
   searchVal = "";
 
