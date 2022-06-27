@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { NonTechnicalSkills, Profile, TechnicalSkills } from 'src/app/shared/profile.model';
+import { NonTechnicalSkills, Profile, TechnicalSkill, TechnicalSkills } from 'src/app/shared/profile.model';
 import { ProfileService } from 'src/app/shared/profile.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class EditComponent implements OnInit {
 
   isAdded = false;
   showMsg = false;
+  technicalSkill: any=[];
   technicalSkills: TechnicalSkills = new TechnicalSkills();
   nonTechnicalSkills: NonTechnicalSkills = new NonTechnicalSkills();
   profile: Profile = new Profile(null, null, null, null, this.technicalSkills, this.nonTechnicalSkills, null, null);  
@@ -29,6 +30,22 @@ export class EditComponent implements OnInit {
       associateId: this.profile.associateId,
       mobile: this.profile.mobile,
       email: this.profile.email
+      //html_Css_Javascript: this.profile.technicalSkills[0].html_Css_Javascript
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
+      // email: this.profile.email,
      
       
     })
@@ -44,8 +61,13 @@ export class EditComponent implements OnInit {
 
 
     this.profileService.getProfileDetail(this.id).subscribe((data) => {
-      //console.log(data);
+      console.log(data);
       this.profiles = data;
+      console.log(this.profiles);
+      this.technicalSkill = this.profiles.technicalSkill;
+      console.log(this.profile.name);
+      console.log(this.profile.technicalSkills);
+      //console.log(this.profile.technicalSkill[0].react);
     });    
   }
 
@@ -78,6 +100,7 @@ export class EditComponent implements OnInit {
 
   save(){
     console.log(this.profile);
+    console.log(this.profile.technicalSkill);
     this.profileService.addProfile(this.profile).subscribe({
     })
     
