@@ -17,6 +17,7 @@ export class EditComponent implements OnInit {
   isAdded = false;
   showMsg = false;
   technicalSkill: any=[];
+  nonTechnicalSkill: any=[];
   technicalSkills: TechnicalSkills = new TechnicalSkills();
   nonTechnicalSkills: NonTechnicalSkills = new NonTechnicalSkills();
   profile: Profile = new Profile(null, null, null, null, this.technicalSkills, this.nonTechnicalSkills, null, null);  
@@ -65,6 +66,7 @@ export class EditComponent implements OnInit {
       this.profiles = data;
       console.log(this.profiles);
       this.technicalSkill = this.profiles.technicalSkill;
+      this.nonTechnicalSkill = this.profiles.nonTechnicalSkill;
       console.log(this.profile.name);
       console.log(this.profile.technicalSkills);
       //console.log(this.profile.technicalSkill[0].react);

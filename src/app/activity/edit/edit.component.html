@@ -13,53 +13,93 @@
         </div>
 
         <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="row">Details</th>
+                    <th scope="row"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><label for="name">Name</label></td>
+                    <td><input type="text" id="{{profiles.name}}" name="{{profiles.name}}"
+                      value="{{profiles.name}}">
+                  </tr>
+                  <tr>
+                    <td><label for="associateId">Associate Id</label></td>
+                    <td><input type="text" id="{{profiles.associateId}}" name="{{profiles.associateId}}"
+                      value="{{profiles.associateId}}">
+                  </tr>
+                  <tr>
+                    <td><label for="mobile">Mobile</label></td>
+                    <td><input type="text" id="{{profiles.mobile}}" name="{{profiles.mobile}}"
+                      value="{{profiles.mobile}}">
+                  </tr>
+                  <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="text" id="{{profiles.email}}" name="{{profiles.email}}"
+                      value="{{profiles.email}}">
+                  </tr>
+                </tbody>
+              </table>
+            </div>            
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="row">skillName</th>
+                    <th scope="row">Expertise Level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of technicalSkill">
+                    <td><label for="{{item.skillName}}">{{item.skillName}}</label></td>
+                    <td><input type="number" id="{{item.expertiseLevel}}" name="{{item.expertiseLevel}}"
+                        value="{{item.expertiseLevel}}"  [min]="0" [max]="20">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="row">skillName</th>
+                    <th scope="row">Expertise Level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of nonTechnicalSkill">
+                    <td><label for="{{item.skillName}}">{{item.skillName}}</label></td>
+                    <td><input type="number" id="{{item.expertiseLevel}}" name="{{item.expertiseLevel}}"
+                      value="{{item.expertiseLevel}}"  [min]="0" [max]="20">
+                  </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+         
+          
+        </div>
+        <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4">
-            <div class="form-group">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="row">skillName</th>
-                    <th scope="row">Expertise Level</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of technicalSkill">
-                    <td><label for="{{item.skillName}}">{{item.skillName}}</label></td>
-                    <td><input type="text" id="{{item.expertiseLevel}}" name="{{item.expertiseLevel}}"
-                        value="{{item.expertiseLevel}}">
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
+            <button type="submit" [disabled]="editForm.invalid" class="btn btn-success">Submit</button>
           </div>
-
-          <div class="col-md-4">
-            <div class="form-group">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="row">skillName</th>
-                    <th scope="row">Expertise Level</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of technicalSkill">
-                    <td><label for="{{item.skillName}}">{{item.skillName}}</label></td>
-                    <td><input type="text" id="{{item.expertiseLevel}}" name="{{item.expertiseLevel}}"
-                        value="{{item.expertiseLevel}}">
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <div class="col-md-4"></div>
         </div>
       </form>
+    <br><br>
     </div>
   </div>
-
 </div>
